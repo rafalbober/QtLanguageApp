@@ -31,7 +31,7 @@ int main(int argc, char* argv[])
     qDebug() << "MakeTable = " << MakeTable;
     //qDebug() << "DeleteTable = " << DeleteTable;
     qDebug() << "prepare = " << prepare;
-    QSqlQuery select("SELECT * FROM Jezyki");
+    query.exec();
 
     QSqlTableModel test;
     test.setTable("Jezyki");
