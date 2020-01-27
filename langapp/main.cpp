@@ -4,6 +4,8 @@
 #include "mainwindow.h"
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlQuery>
+#include <QSqlTableModel>
+#include <QTableView>
 
 int main(int argc, char* argv[])
 {
@@ -29,8 +31,14 @@ int main(int argc, char* argv[])
     qDebug() << "MakeTable = " << MakeTable;
     //qDebug() << "DeleteTable = " << DeleteTable;
     qDebug() << "prepare = " << prepare;
-    auto Select = query.exec("SELECT * FROM Jezyki");
-    qDebug() << "Select = " << Select;
+    QSqlQuery select("SELECT * FROM Jezyki");
+
+    QSqlTableModel test;
+    test.setTable("Jezyki");
+    test.select();
+    QTableView* testView = new QTableView;
+    testView->setModel(&test);
+    testView->show();
 
 
     return a.exec();
