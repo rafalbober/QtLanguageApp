@@ -1,19 +1,9 @@
-/*#include "mainwindow.h"
-#include <QApplication>
-
-int main(int argc, char *argv[])
-{
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
-
-    return a.exec();
-}*/
-
 #include <QApplication>
 #include <QDebug>
 #include <QtSql/QSqlDatabase>
 #include "mainwindow.h"
+#include <QtSql/QSqlDatabase>
+#include <QtSql/QSqlQuery>
 
 int main(int argc, char* argv[])
 {
@@ -27,5 +17,14 @@ int main(int argc, char* argv[])
     db.setPassword("test123");
     bool ok = db.open();
     qDebug() << ok;
+
+
+    QSqlQuery query;
+    auto MakeTable = query.exec("CREATE TABLE Jezyki(id_jez int PRIMARY KEY, nazwa VARCHAR)");
+    auto DeleteTable = query.exec("DROP TABLE Jezyki");
+    qDebug() << "MakeTable = " << MakeTable;
+    qDebug() << "DeleteTable = " << DeleteTable;
+
+
     return a.exec();
 }
