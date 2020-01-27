@@ -11,10 +11,8 @@ int main(int argc, char *argv[])
 }*/
 
 #include <QApplication>
-#include <QtNetwork/QNetworkAccessManager>
-#include <QUrl>
-#include <QtNetwork/QNetworkReply>
 #include <QDebug>
+#include <QtSql/QSqlDatabase>
 #include "mainwindow.h"
 
 int main(int argc, char* argv[])
@@ -22,11 +20,12 @@ int main(int argc, char* argv[])
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
-    QNetworkAccessManager* qnam = new QNetworkAccessManager();
-    QNetworkReply* rep = qnam->get(QNetworkRequest(QUrl("https://translate.google.com/?hl=pl#view=home&op=translate&sl=en&tl=pl&text=great")));
-    qDebug() << rep;
-    QString result = QVariant(rep->readAll()).toString();
-    qDebug() << result;
-    qnam->deleteLater();
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setHostName("localhost");
+    db.setDatabaseName("test");
+    db.setUserName("test");
+    db.setPassword("test123");
+    bool ok = db.open();
+    qDebug() << ok;
     return a.exec();
 }
