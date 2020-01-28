@@ -28,12 +28,12 @@ int main(int argc, char* argv[])
     qDebug() << "Words added: " << words;
 
     // Table view
-    /*QSqlTableModel test;
+    QSqlTableModel test;
     test.setTable("Jezyki");
     test.select();
     QTableView* testView = new QTableView;
     testView->setModel(&test);
-    testView->show();*/
+    testView->show();
 
 
     return a.exec();

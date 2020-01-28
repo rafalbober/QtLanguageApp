@@ -6,6 +6,7 @@ Seeder::Seeder()
     /*engWords.push_back("Dog"); engWords.push_back("Cat"); engWords.push_back("Beaver");
     deWords.push_back("Hund"); deWords.push_back("Katze"); deWords.push_back("Biber");
     plWords.push_back("")*/
+    langs = {"polski", "angielski", "niemiecki"};
     engWords = {"Dog", "Cat", "Beaver"};
     deWords = {"Hund", "Katze", "Biber"};
     plWords = {"Pies", "Kot", "Bober"};
@@ -29,8 +30,6 @@ int Seeder::MakeTables()
     auto categories = query.exec("CREATE TABLE Kategorie(id_kat int PRIMARY KEY, nazwa VARCHAR)");
     auto words = query.exec("CREATE TABLE Slowa(id_sl int PRIMARY KEY, pl VARCHAR, ang VARCHAR, niem VARCHAR)");
 
-    query.exec();
-
     return (languages + categories + words);
 }
 
@@ -51,11 +50,12 @@ int Seeder::FillLangs()
 
     for (int i = 1; i<=langs.size(); i++)
     {
-        auto fill = query.prepare("INSERT INTO Jezyki(id_jez, nazwa)"
+        query.prepare("INSERT INTO Jezyki(id_jez, nazwa)"
                           "VALUES (:id_jez, :nazwa)");
         query.bindValue(":id_jez", i);
-        query.bindValue(":nazwa", "angielski");
-        if (fill == 1)
+        query.bindValue(":nazwa", langs[i-1]);
+        auto fill = query.exec();
+        if (fill)
             inserts++;
     }
     return inserts;
@@ -74,7 +74,7 @@ int Seeder::FillWords()
 
     for (int i = 1; i<=plWords.size(); i++)
     {
-        query.prepare("INSERT INTO Words(id_sl, pl, ang, niem)"
+        query.prepare("INSERT INTO Slowa(id_sl, pl, ang, niem)"
                           "VALUES (:id_jez, :pl, :ang, :niem)");
         query.bindValue(":id_jez", i);
         query.bindValue(":pl", plWords[i-1]);
@@ -83,7 +83,7 @@ int Seeder::FillWords()
 
         auto fill = query.exec();
 
-        if (fill == 1)
+        if (fill)
             records++;
     }
     return records;
