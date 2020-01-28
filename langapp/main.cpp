@@ -7,6 +7,8 @@
 #include <QSqlTableModel>
 #include <QTableView>
 
+void MakeTableViews(); // show tables via table model
+
 int main(int argc, char* argv[])
 {
     // Show window
@@ -14,27 +16,78 @@ int main(int argc, char* argv[])
     MainWindow w;
     w.show();
 
+    // Create conection and seed database
     Seeder seeder{};
-    int db = seeder.initDb();
+    QSqlDatabase db = seeder.initDb();
     int dels = seeder.DeleteTables();
     int tables = seeder.MakeTables();
     int langs = seeder.FillLangs();
     //int ctgs = seeder.FillCategories();
     int words = seeder.FillWords();
 
+    // Log operations results
     qDebug() << "Deletions: " << dels;
     qDebug() << "Table creations: " << tables;
     qDebug() << "Language insertions: " << langs;
+    //qDebug() << "Categories added: " << ctgs;
     qDebug() << "Words added: " << words;
 
-    // Table view
-    QSqlTableModel test;
-    test.setTable("Jezyki");
-    test.select();
-    QTableView* testView = new QTableView;
-    testView->setModel(&test);
-    testView->show();
+
+    /* TABLE MODELS */
+
+    // Languages
+    QSqlTableModel langsTable;
+    langsTable.setTable("Jezyki");
+    langsTable.select();
+    QTableView* langsTableView = new QTableView;
+    langsTableView->setModel(&langsTable);
+    langsTableView->show();
+
+    // Words
+    QSqlTableModel wordsTable;
+    wordsTable.setTable("Slowa");
+    wordsTable.select();
+    QTableView* wordsTableView = new QTableView;
+    wordsTableView->setModel(&wordsTable);
+    wordsTableView->show();
+
+    // Categories
+    QSqlTableModel ctgsTable;
+    ctgsTable.setTable("Kategorie");
+    ctgsTable.select();
+    QTableView* ctgsTableView = new QTableView;
+    ctgsTableView->setModel(&ctgsTable);
+    ctgsTableView->show();
 
 
     return a.exec();
+}
+
+// ---------------------------------------------------------------------------------------
+
+void MakeTableViews()
+{
+    // Languages
+    QSqlTableModel lang;
+    lang.setTable("Jezyki");
+    lang.select();
+    QTableView* langView = new QTableView;
+    langView->setModel(&lang);
+    langView->show();
+
+    // Words
+    QSqlTableModel words;
+    words.setTable("Slowa");
+    words.select();
+    QTableView* wordsView = new QTableView;
+    wordsView->setModel(&words);
+    wordsView->show();
+
+    // Categories
+    QSqlTableModel cat;
+    cat.setTable("Kategorie");
+    cat.select();
+    QTableView* catView = new QTableView;
+    catView->setModel(&cat);
+    catView->show();
 }

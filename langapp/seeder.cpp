@@ -3,24 +3,21 @@
 
 Seeder::Seeder()
 {
-    /*engWords.push_back("Dog"); engWords.push_back("Cat"); engWords.push_back("Beaver");
-    deWords.push_back("Hund"); deWords.push_back("Katze"); deWords.push_back("Biber");
-    plWords.push_back("")*/
     langs = {"polski", "angielski", "niemiecki"};
     engWords = {"Dog", "Cat", "Beaver"};
     deWords = {"Hund", "Katze", "Biber"};
     plWords = {"Pies", "Kot", "Bober"};
 }
 
-int Seeder::initDb()
+QSqlDatabase Seeder::initDb()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setHostName("localhost");
     db.setDatabaseName("test");
     db.setUserName("test");
     db.setPassword("test123");
-    bool ok = db.open();
-    return ok;
+    db.open();
+    return db;
 }
 
 int Seeder::MakeTables()
