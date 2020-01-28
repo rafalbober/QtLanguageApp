@@ -11,6 +11,17 @@ Seeder::Seeder()
     plWords = {"Pies", "Kot", "Bober"};
 }
 
+int Seeder::initDb()
+{
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setHostName("localhost");
+    db.setDatabaseName("test");
+    db.setUserName("test");
+    db.setPassword("test123");
+    bool ok = db.open();
+    return ok;
+}
+
 int Seeder::MakeTables()
 {
     QSqlQuery query;

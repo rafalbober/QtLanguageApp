@@ -13,9 +13,12 @@ class Seeder
 {
 public:
     Seeder();
+    int initDb();
     int MakeTables();
     int DeleteTables();
     int FillLangs();
+    int FillCategories();
+    int FillWords();
 private:
     std::vector<QString> langs;
     std::vector<QString> plWords;
