@@ -4,20 +4,21 @@
 Seeder::Seeder()
 {
     langs = {"polski", "angielski", "niemiecki"};
+    categories = {"zwierzęta"};
     engWords = {"Dog", "Cat", "Beaver"};
     deWords = {"Hund", "Katze", "Biber"};
-    plWords = {"Pies", "Kot", "Bober"};
+    plWords = {"Pies", "Kot", "Bóbr"};
 }
 
-QSqlDatabase Seeder::initDb()
+int Seeder::initDb()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setHostName("localhost");
     db.setDatabaseName("test");
     db.setUserName("test");
     db.setPassword("test123");
-    db.open();
-    return db;
+    int ok = db.open();
+    return ok;
 }
 
 int Seeder::MakeTables()
@@ -61,19 +62,33 @@ int Seeder::FillLangs()
 int Seeder::FillCategories()
 {
     QSqlQuery query;
-    return 1;
+    int inserts = 0;
+
+    for (int i = 1; i<=categories.size(); i++)
+    {
+        query.prepare("INSERT INTO Kategorie(id_kat, nazwa)"
+                          "VALUES (:id_kat, :nazwa)");
+        query.bindValue(":id_kat", i);
+        query.bindValue(":nazwa", categories[i-1]);
+
+        auto fill = query.exec();
+
+        if (fill)
+            inserts++;
+    }
+    return inserts;
 }
 
 int Seeder::FillWords()
 {
     QSqlQuery query;
-    int records = 0;
+    int inserts = 0;
 
     for (int i = 1; i<=plWords.size(); i++)
     {
         query.prepare("INSERT INTO Slowa(id_sl, pl, ang, niem)"
-                          "VALUES (:id_jez, :pl, :ang, :niem)");
-        query.bindValue(":id_jez", i);
+                          "VALUES (:id_sl, :pl, :ang, :niem)");
+        query.bindValue(":id_sl", i);
         query.bindValue(":pl", plWords[i-1]);
         query.bindValue(":ang", engWords[i-1]);
         query.bindValue(":niem", deWords[i-1]);
@@ -81,7 +96,7 @@ int Seeder::FillWords()
         auto fill = query.exec();
 
         if (fill)
-            records++;
+            inserts++;
     }
-    return records;
+    return inserts;
 }

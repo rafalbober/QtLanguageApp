@@ -13,7 +13,7 @@ class Seeder
 {
 public:
     Seeder();
-    QSqlDatabase initDb();
+    int initDb();
     int MakeTables();
     int DeleteTables();
     int FillLangs();
