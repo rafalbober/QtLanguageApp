@@ -27,10 +27,12 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    seeder.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    seeder.h
 
 FORMS += \
         mainwindow.ui
