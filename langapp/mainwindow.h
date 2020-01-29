@@ -34,8 +34,6 @@ private slots:
     void on_JapanBt_clicked();
     void on_pbCheck_clicked();
 
-    void on_pushButton_clicked(bool checked);
-
     void on_PicRec_clicked(bool checked);
 
     void on_MainMenu_2_clicked();

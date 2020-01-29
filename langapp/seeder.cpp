@@ -100,7 +100,7 @@ int Seeder::FillWords()
             QByteArray inByteArray;
             QBuffer inBuffer( &inByteArray );
             inBuffer.open( QIODevice::WriteOnly );
-            inPixmap.save( &inBuffer, "jpeg" ); // write inPixmap into inByteArray in PNG format
+            inPixmap.save( &inBuffer, "JPEG" ); // write inPixmap into inByteArray
             query.bindValue( ":img", inByteArray );
 
         auto fill = query.exec();
