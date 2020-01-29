@@ -25,8 +25,8 @@ int Seeder::MakeTables()
 {
     QSqlQuery query;
     auto languages = query.exec("CREATE TABLE Jezyki(id_jez int PRIMARY KEY, nazwa VARCHAR)");
-    auto categories = query.exec("CREATE TABLE Kategorie(id_kat int PRIMARY KEY, nazwa VARCHAR)");
-    auto words = query.exec("CREATE TABLE Slowa(id_sl int PRIMARY KEY, pl VARCHAR, ang VARCHAR, niem VARCHAR)");
+    auto categories = query.exec("CREATE TABLE Kategorie(id_kat int PRIMARY KEY, nazwa VARCHAR, id_jez int REFERENCES Jezyki(id_jez))");
+    auto words = query.exec("CREATE TABLE Slowa(id_sl int PRIMARY KEY, pl VARCHAR, ang VARCHAR, niem VARCHAR, id_kat int REFERENCES Kategorie(id_kat))");
 
     return (languages + categories + words);
 }
@@ -86,12 +86,13 @@ int Seeder::FillWords()
 
     for (int i = 1; i<=plWords.size(); i++)
     {
-        query.prepare("INSERT INTO Slowa(id_sl, pl, ang, niem)"
-                          "VALUES (:id_sl, :pl, :ang, :niem)");
+        query.prepare("INSERT INTO Slowa(id_sl, pl, ang, niem, id_kat)"
+                          "VALUES (:id_sl, :pl, :ang, :niem, :id_kat)");
         query.bindValue(":id_sl", i);
         query.bindValue(":pl", plWords[i-1]);
         query.bindValue(":ang", engWords[i-1]);
         query.bindValue(":niem", deWords[i-1]);
+        query.bindValue(":id_kat", 1);
 
         auto fill = query.exec();
 
