@@ -87,13 +87,21 @@ int Seeder::FillWords()
 
     for (int i = 1; i<=plWords.size(); i++)
     {
-        query.prepare("INSERT INTO Slowa(id_sl, Polish, English, Deutsch, id_kat)"
-                          "VALUES (:id_sl, :pl, :ang, :niem, :id_kat)");
+        query.prepare("INSERT INTO Slowa(id_sl, Polish, English, Deutsch, image, id_kat)"
+                          "VALUES (:id_sl, :pl, :ang, :niem, :img, :id_kat)");
         query.bindValue(":id_sl", i);
         query.bindValue(":pl", plWords[i-1]);
         query.bindValue(":ang", engWords[i-1]);
         query.bindValue(":niem", deWords[i-1]);
         query.bindValue(":id_kat", 1);
+
+            // Image test
+            QPixmap inPixmap(":/imgs/images.jpeg");
+            QByteArray inByteArray;
+            QBuffer inBuffer( &inByteArray );
+            inBuffer.open( QIODevice::WriteOnly );
+            inPixmap.save( &inBuffer, "jpeg" ); // write inPixmap into inByteArray in PNG format
+            query.bindValue( ":img", inByteArray );
 
         auto fill = query.exec();
 

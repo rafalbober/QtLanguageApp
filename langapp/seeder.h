@@ -7,7 +7,8 @@
 #include <QTableView>
 #include <QDebug>
 #include <vector>
-
+#include <QtSql>
+#include <QtWidgets>
 
 class Seeder
 {

@@ -100,7 +100,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
 void MainWindow::assignValue(QString val)
 {
     word = val;
@@ -144,12 +143,7 @@ void MainWindow::on_pbCheck_clicked()
 void MainWindow::on_PicRec_clicked(bool checked)
 {
     ui->stackedWidget->setCurrentIndex(2);
-    QGraphicsScene scene;
     QPixmap pixmap(":/imgs/images.jpeg");
-    scene.addPixmap(pixmap);
-
-   /* ui->picView->setScene(&scene);
-    ui->picView->show();*/
     ui->imageLabel->setPixmap(pixmap);
     ui->imageLabel->setScaledContents(true);
 }

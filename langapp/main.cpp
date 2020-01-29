@@ -33,22 +33,9 @@ int main(int argc, char* argv[])
     qDebug() << "Categories added: " << ctgs;
     qDebug() << "Words added: " << words;
 
-    // Image test
-    QScreen *screen = a.primaryScreen();
-        QPixmap inPixmap = screen->grabWindow( 0 );
-        QByteArray inByteArray;
-        QBuffer inBuffer( &inByteArray );
-        inBuffer.open( QIODevice::WriteOnly );
-        inPixmap.save( &inBuffer, "PNG" ); // write inPixmap into inByteArray in PNG format
-
-        QSqlQuery query = QSqlQuery( db );
-        query.prepare( "INSERT INTO Slowa (image) VALUES (:imageData)" );
-        query.bindValue( ":imageData", inByteArray );
-        query.exec();
-
     /* TABLE MODELS */
 
-    /*// Languages
+    // Languages
     QSqlTableModel langsTable;
     langsTable.setTable("Jezyki");
     langsTable.select();
@@ -70,7 +57,7 @@ int main(int argc, char* argv[])
     ctgsTable.select();
     QTableView* ctgsTableView = new QTableView;
     ctgsTableView->setModel(&ctgsTable);
-    ctgsTableView->show();*/
+    ctgsTableView->show();
 
 
     return a.exec();
