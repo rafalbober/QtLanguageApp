@@ -35,6 +35,8 @@ MainWindow::MainWindow(QWidget *parent) :
     Checker->addTransition(ui->MainMenu, SIGNAL(clicked(bool)), Startup);
     Checker->addTransition(wordCmp, SIGNAL(changed(QString)), Edit);
 
+    Checker->addTransition(wordCmp, SIGNAL(changed(QString)), Edit);
+
     Edit->addTransition(ui->MainMenu, SIGNAL(clicked(bool)), Startup);
     Edit->addTransition(wordCmp,SIGNAL(correct()), Correct);
     Edit->addTransition(wordCmp,SIGNAL(incorrect()), Incorrect);
@@ -135,4 +137,15 @@ void MainWindow::on_JapanBt_clicked()
 void MainWindow::on_pbCheck_clicked()
 {
     wordCmp->checkCorrect(ui->TypeText->text());
+}
+
+
+void MainWindow::on_PicRec_clicked(bool checked)
+{
+    ui->stackedWidget->setCurrentIndex(2);
+}
+
+void MainWindow::on_MainMenu_2_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
 }

@@ -16,27 +16,27 @@
      <colorrole role="Button">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>0</red>
-        <green>0</green>
-        <blue>0</blue>
+        <red>50</red>
+        <green>50</green>
+        <blue>50</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>0</red>
-        <green>0</green>
-        <blue>0</blue>
+        <red>50</red>
+        <green>50</green>
+        <blue>50</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>0</red>
-        <green>0</green>
-        <blue>0</blue>
+        <red>50</red>
+        <green>50</green>
+        <blue>50</blue>
        </color>
       </brush>
      </colorrole>
@@ -45,27 +45,27 @@
      <colorrole role="Button">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>0</red>
-        <green>0</green>
-        <blue>0</blue>
+        <red>50</red>
+        <green>50</green>
+        <blue>50</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>0</red>
-        <green>0</green>
-        <blue>0</blue>
+        <red>50</red>
+        <green>50</green>
+        <blue>50</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>0</red>
-        <green>0</green>
-        <blue>0</blue>
+        <red>50</red>
+        <green>50</green>
+        <blue>50</blue>
        </color>
       </brush>
      </colorrole>
@@ -74,27 +74,27 @@
      <colorrole role="Button">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>0</red>
-        <green>0</green>
-        <blue>0</blue>
+        <red>50</red>
+        <green>50</green>
+        <blue>50</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>0</red>
-        <green>0</green>
-        <blue>0</blue>
+        <red>50</red>
+        <green>50</green>
+        <blue>50</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>0</red>
-        <green>0</green>
-        <blue>0</blue>
+        <red>50</red>
+        <green>50</green>
+        <blue>50</blue>
        </color>
       </brush>
      </colorrole>
@@ -105,13 +105,13 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background:rgb(0, 0, 0)</string>
+   <string notr="true">background:rgb(50,50,50)</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>80</x>
       <y>40</y>
       <width>591</width>
       <height>381</height>
@@ -121,33 +121,33 @@
      <string notr="true">background:rgb(100, 100, 100)</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="page_3">
      <widget class="QPushButton" name="CheckWord">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>20</x>
         <y>190</y>
-        <width>181</width>
-        <height>131</height>
+        <width>171</width>
+        <height>111</height>
        </rect>
       </property>
       <property name="text">
-       <string>Porownywanie slow</string>
+       <string>Porownywanie słów</string>
       </property>
      </widget>
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>230</x>
+        <x>240</x>
         <y>120</y>
-        <width>121</width>
+        <width>141</width>
         <height>51</height>
        </rect>
       </property>
       <property name="text">
-       <string>wybierz gre</string>
+       <string>Wybierz grę:</string>
       </property>
      </widget>
      <widget class="QPushButton" name="EnglishBt">
@@ -200,6 +200,19 @@
       </property>
       <property name="text">
        <string>Wybierz Język</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="PicRec">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>190</y>
+        <width>191</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Rozpoznawanie obrazków</string>
       </property>
      </widget>
     </widget>
@@ -268,6 +281,21 @@
        <rect>
         <x>10</x>
         <y>0</y>
+        <width>97</width>
+        <height>33</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Main Menu</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_5">
+     <widget class="QPushButton" name="MainMenu_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
         <width>97</width>
         <height>33</height>
        </rect>
