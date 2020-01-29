@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background:rgb(0, 0, 0)</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
@@ -24,10 +27,10 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">background:rgb(255, 255, 255)</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page_3">
      <widget class="QPushButton" name="CheckWord">
@@ -149,7 +152,7 @@
        <string>Random word</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="text1">
+     <widget class="QLineEdit" name="ShowText">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -159,7 +162,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="text2">
+     <widget class="QLineEdit" name="TypeText">
       <property name="geometry">
        <rect>
         <x>380</x>

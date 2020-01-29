@@ -23,7 +23,6 @@ signals:
 
 
 public slots:
-    void check();
     void assignValue(QString val);
 
 
@@ -31,10 +30,9 @@ private slots:
     void on_CheckWord_clicked();
     void on_MainMenu_clicked();
     void on_EnglishBt_clicked();
-
     void on_DeutschBt_clicked();
-
     void on_JapanBt_clicked();
+    void on_pbCheck_clicked();
 
 private:
     Ui::MainWindow *ui;
