@@ -33,7 +33,7 @@ MainWindow::MainWindow(QWidget *parent) :
     Edit->assignProperty(ui->pbAnswer, "enabled", false);
     Edit->assignProperty(ui->pbAnswer, "text", "???");
     Edit->assignProperty(ui->text1, "enabled", false);
-    Edit->assignProperty(ui->text1, "text", "test");             // prowizorka
+    Edit->assignProperty(ui->text1, "text", "test");                              // "Losowanie" słowa - prowizorka narazie
     Edit->assignProperty(ui->text2, "enabled", true);
     Edit->assignProperty(ui->text2, "placeholderText","Your answer");
 
@@ -52,7 +52,7 @@ MainWindow::MainWindow(QWidget *parent) :
     Correct->assignProperty(ui->text1, "enabled", false);
     Correct->assignProperty(ui->text2, "enabled", true);
 
-    Correct->addTransition(ui->text2, SIGNAL(textChanged(QString)),Edit);                  //  nie działa no idea why
+    Correct->addTransition(ui->text2, SIGNAL(textChanged(QString)),Edit);
     Correct->addTransition(ui->pbRandom, SIGNAL(clicked(bool)),Edit);
 
 
@@ -63,7 +63,7 @@ MainWindow::MainWindow(QWidget *parent) :
     Incorrect->assignProperty(ui->text1, "enabled", false);
     Incorrect->assignProperty(ui->text2, "enabled", true);
 
-    Incorrect->addTransition(ui->text2, SIGNAL(textChanged(QString)),Edit);                 // nie działą no idea why
+    Incorrect->addTransition(ui->text2, SIGNAL(textChanged(QString)),Edit);
     Incorrect->addTransition(ui->pbRandom, SIGNAL(clicked(bool)),Edit);
 
     stateMachine->setInitialState(Startup);
