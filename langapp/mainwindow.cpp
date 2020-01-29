@@ -8,11 +8,13 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    wordCmp = new WordCompare();
     ui->setupUi(this);
 
     auto stateMachine = new QStateMachine(this);
 
     auto Startup = new QState(stateMachine);
+    auto Lang = new QState(stateMachine);
     auto Checker = new QState(stateMachine);
     auto Edit = new QState(stateMachine);
     auto Check = new QState(stateMachine);
@@ -20,7 +22,15 @@ MainWindow::MainWindow(QWidget *parent) :
     auto Incorrect = new QState(stateMachine);
 
 
-    Startup->addTransition(ui->CheckWord, SIGNAL(clicked(bool)), Checker);
+
+    Checker->addTransition(ui->MainMenu, SIGNAL(clicked(bool)), Startup);
+    Edit->addTransition(ui->MainMenu, SIGNAL(clicked(bool)), Startup);
+
+    Startup->assignProperty(ui->CheckWord, "enabled", false);
+    connect(this, SIGNAL(langChange(QString)), wordCmp, SLOT(assignValue(QString)));
+    Startup->addTransition(this, SIGNAL(langChange(QString)), Lang);
+    Lang->assignProperty(ui->CheckWord, "enabled", true);
+    Lang->addTransition(ui->CheckWord, SIGNAL(clicked(bool)), Checker);
 
 
     Checker->assignProperty(ui->pbCheck, "enabled", false);
@@ -32,14 +42,18 @@ MainWindow::MainWindow(QWidget *parent) :
     Checker->assignProperty(ui->text1, "placeholderText","Random word");
     Checker->assignProperty(ui->text2, "placeholderText","Your answer");
 
-    Checker->addTransition(ui->pbRandom, SIGNAL(clicked(bool)), Edit);
+
+    connect(ui->pbRandom, SIGNAL(clicked()), wordCmp, SLOT(randomMaker()));
+    connect(wordCmp,SIGNAL(changed(QString)),this,SLOT(assignValue(QString)));
+    Checker->addTransition(wordCmp, SIGNAL(changed(QString)), Edit);
+    connect(wordCmp,SIGNAL(changed(QString)),ui->text1,SLOT(setText(QString)));
 
     Edit->assignProperty(ui->pbCheck, "enabled", true);
     Edit->assignProperty(ui->pbRandom, "enabled", true);
     Edit->assignProperty(ui->pbAnswer, "enabled", false);
     Edit->assignProperty(ui->pbAnswer, "text", "???");
     Edit->assignProperty(ui->text1, "enabled", false);
-    Edit->assignProperty(ui->text1, "text", "test");                              // "Losowanie" słowa - prowizorka narazie
+    //Edit->assignProperty(ui->text1, "text", );
     Edit->assignProperty(ui->text2, "enabled", true);
     Edit->assignProperty(ui->text2, "placeholderText","Your answer");
 
@@ -72,7 +86,7 @@ MainWindow::MainWindow(QWidget *parent) :
     Incorrect->addTransition(ui->text2, SIGNAL(textChanged(QString)),Edit);
     Incorrect->addTransition(ui->pbRandom, SIGNAL(clicked(bool)),Edit);
 
-    stateMachine->setInitialState(Checker);
+    stateMachine->setInitialState(Startup);
 
     stateMachine->start();
 }
@@ -92,6 +106,12 @@ void MainWindow::check()
     else emit incorrect();
 }
 
+void MainWindow::assignValue(QString val)
+{
+    word = val;
+    qDebug() << word;
+}
+
 void MainWindow::on_CheckWord_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
@@ -101,3 +121,10 @@ void MainWindow::on_MainMenu_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
+
+void MainWindow::on_EnglishBt_clicked()
+{
+    lang = "ang";
+    emit langChange(lang);
+}
+

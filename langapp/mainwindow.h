@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "wordcompare.h"
 
 namespace Ui {
 class MainWindow;
@@ -18,19 +19,25 @@ public:
 signals:
     void correct();
     void incorrect();
+    void langChange(QString val);
 
 
 public slots:
     void check();
+    void assignValue(QString val);
 
 
 private slots:
     void on_CheckWord_clicked();
-
     void on_MainMenu_clicked();
+    void on_EnglishBt_clicked();
 
 private:
     Ui::MainWindow *ui;
+    WordCompare* wordCmp;
+    QString word;
+    QString lang;
+
 };
 
 #endif // MAINWINDOW_H

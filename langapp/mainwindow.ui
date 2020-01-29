@@ -18,24 +18,23 @@
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>50</y>
+      <y>40</y>
       <width>591</width>
       <height>381</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: oblique 11pt &quot;Tlwg Typo&quot;;
-</string>
+     <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page_3">
      <widget class="QPushButton" name="CheckWord">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>100</y>
+        <x>10</x>
+        <y>190</y>
         <width>181</width>
         <height>131</height>
        </rect>
@@ -47,14 +46,66 @@
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>240</x>
-        <y>40</y>
+        <x>230</x>
+        <y>120</y>
         <width>121</width>
         <height>51</height>
        </rect>
       </property>
       <property name="text">
        <string>wybierz gre</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="EnglishBt">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>60</y>
+        <width>97</width>
+        <height>33</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>English</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="DeutschBt">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>60</y>
+        <width>97</width>
+        <height>33</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Deutsch</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="OtherBt">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>60</y>
+        <width>97</width>
+        <height>33</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Other</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>20</y>
+        <width>121</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Wybierz Język</string>
       </property>
      </widget>
     </widget>

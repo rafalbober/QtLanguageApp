@@ -28,11 +28,13 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    seeder.cpp
+    seeder.cpp \
+    wordcompare.cpp
 
 HEADERS += \
         mainwindow.h \
-    seeder.h
+    seeder.h \
+    wordcompare.h
 
 FORMS += \
         mainwindow.ui
