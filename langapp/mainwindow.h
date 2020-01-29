@@ -32,6 +32,10 @@ private slots:
     void on_MainMenu_clicked();
     void on_EnglishBt_clicked();
 
+    void on_DeutschBt_clicked();
+
+    void on_JapanBt_clicked();
+
 private:
     Ui::MainWindow *ui;
     WordCompare* wordCmp;

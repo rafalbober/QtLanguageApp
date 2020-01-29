@@ -24,6 +24,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     Checker->addTransition(ui->MainMenu, SIGNAL(clicked(bool)), Startup);
+    Correct->addTransition(ui->MainMenu, SIGNAL(clicked(bool)), Startup);
+    Incorrect->addTransition(ui->MainMenu, SIGNAL(clicked(bool)), Startup);
     Edit->addTransition(ui->MainMenu, SIGNAL(clicked(bool)), Startup);
 
     Startup->assignProperty(ui->CheckWord, "enabled", false);
@@ -39,7 +41,7 @@ MainWindow::MainWindow(QWidget *parent) :
     Checker->assignProperty(ui->pbAnswer, "text", "???");
     Checker->assignProperty(ui->text1, "enabled", false);
     Checker->assignProperty(ui->text2, "enabled", false);
-    Checker->assignProperty(ui->text1, "placeholderText","Random word");
+    Checker->assignProperty(ui->text1, "text","Random word");
     Checker->assignProperty(ui->text2, "placeholderText","Your answer");
 
 
@@ -53,7 +55,6 @@ MainWindow::MainWindow(QWidget *parent) :
     Edit->assignProperty(ui->pbAnswer, "enabled", false);
     Edit->assignProperty(ui->pbAnswer, "text", "???");
     Edit->assignProperty(ui->text1, "enabled", false);
-    //Edit->assignProperty(ui->text1, "text", );
     Edit->assignProperty(ui->text2, "enabled", true);
     Edit->assignProperty(ui->text2, "placeholderText","Your answer");
 
@@ -124,7 +125,19 @@ void MainWindow::on_MainMenu_clicked()
 
 void MainWindow::on_EnglishBt_clicked()
 {
-    lang = "ang";
+    lang = "English";
     emit langChange(lang);
 }
 
+
+void MainWindow::on_DeutschBt_clicked()
+{
+    lang = "Deutsch";
+    emit langChange(lang);
+}
+
+void MainWindow::on_JapanBt_clicked()
+{
+    lang = "Japan";
+    emit langChange(lang);
+}

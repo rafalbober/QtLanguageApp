@@ -82,7 +82,7 @@
        <string>Deutsch</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="OtherBt">
+     <widget class="QPushButton" name="JapanBt">
       <property name="geometry">
        <rect>
         <x>410</x>
@@ -92,7 +92,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Other</string>
+       <string>Japan</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_2">
