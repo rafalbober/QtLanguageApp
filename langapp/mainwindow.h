@@ -24,6 +24,7 @@ signals:
 
 public slots:
     void assignValue(QString val);
+    void picDisplay(QPixmap);
 
 
 private slots:
@@ -33,12 +34,9 @@ private slots:
     void on_DeutschBt_clicked();
     void on_JapanBt_clicked();
     void on_pbCheck_clicked();
-
-    void on_PicRec_clicked(bool checked);
-
+    void on_PicRec_clicked();
     void on_MainMenu_2_clicked();
-
-    void on_imageLabel_linkHovered(const QString &link);
+    void on_picCheck_clicked();
 
 private:
     Ui::MainWindow *ui;

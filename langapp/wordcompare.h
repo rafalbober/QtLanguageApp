@@ -9,6 +9,7 @@
 #include <QDebug>
 #include <vector>
 #include <QObject>
+#include <QPixmap>
 
 #include <algorithm>
 #include <cctype>
@@ -25,17 +26,22 @@ public:
 public slots:
     void assignValue(QString val);
     void randomMaker();
+    void picRand();
 
 
 signals:
     void changed(QString);
-    void correct();
-    void incorrect();
+    void correctWord(QString);
+    void incorrectWord(QString);
+    void correctPic(QString);
+    void incorrectPic(QString);
+    void picRanded(QPixmap);
 
 private:
     QString lang;
     int id;
     QString word;
+    int app;
 };
 
 #endif // WORDCOMPARE_H
