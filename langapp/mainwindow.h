@@ -40,6 +40,8 @@ private slots:
 
     void on_MainMenu_2_clicked();
 
+    void on_imageLabel_linkHovered(const QString &link);
+
 private:
     Ui::MainWindow *ui;
     WordCompare* wordCmp;

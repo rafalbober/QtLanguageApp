@@ -6,6 +6,8 @@
 #include <QtSql/QSqlQuery>
 #include <QSqlTableModel>
 #include <QTableView>
+#include <QtSql>
+#include <QtWidgets>
 
 int main(int argc, char* argv[])
 {
@@ -16,7 +18,7 @@ int main(int argc, char* argv[])
 
     // Create connection and seed database
     Seeder seeder{};
-    int db = seeder.initDb();
+    QSqlDatabase db = seeder.initDb();
     int dels = seeder.DeleteTables();
     int tables = seeder.MakeTables();
     int langs = seeder.FillLangs();
@@ -31,6 +33,18 @@ int main(int argc, char* argv[])
     qDebug() << "Categories added: " << ctgs;
     qDebug() << "Words added: " << words;
 
+    // Image test
+    QScreen *screen = a.primaryScreen();
+        QPixmap inPixmap = screen->grabWindow( 0 );
+        QByteArray inByteArray;
+        QBuffer inBuffer( &inByteArray );
+        inBuffer.open( QIODevice::WriteOnly );
+        inPixmap.save( &inBuffer, "PNG" ); // write inPixmap into inByteArray in PNG format
+
+        QSqlQuery query = QSqlQuery( db );
+        query.prepare( "INSERT INTO Slowa (image) VALUES (:imageData)" );
+        query.bindValue( ":imageData", inByteArray );
+        query.exec();
 
     /* TABLE MODELS */
 

@@ -3,6 +3,7 @@
 #include <QStateMachine>
 #include <QDebug>
 #include <QStackedWidget>
+#include <QResource>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -143,9 +144,22 @@ void MainWindow::on_pbCheck_clicked()
 void MainWindow::on_PicRec_clicked(bool checked)
 {
     ui->stackedWidget->setCurrentIndex(2);
+    QGraphicsScene scene;
+    QPixmap pixmap(":/imgs/images.jpeg");
+    scene.addPixmap(pixmap);
+
+   /* ui->picView->setScene(&scene);
+    ui->picView->show();*/
+    ui->imageLabel->setPixmap(pixmap);
+    ui->imageLabel->setScaledContents(true);
 }
 
 void MainWindow::on_MainMenu_2_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_imageLabel_linkHovered(const QString &link)
+{
+
 }
