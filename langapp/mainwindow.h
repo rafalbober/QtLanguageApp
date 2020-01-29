@@ -24,6 +24,11 @@ public slots:
     void check();
 
 
+private slots:
+    void on_CheckWord_clicked();
+
+    void on_MainMenu_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

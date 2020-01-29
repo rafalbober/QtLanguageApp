@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QStateMachine>
 #include <QDebug>
+#include <QStackedWidget>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -12,21 +13,26 @@ MainWindow::MainWindow(QWidget *parent) :
     auto stateMachine = new QStateMachine(this);
 
     auto Startup = new QState(stateMachine);
+    auto Checker = new QState(stateMachine);
     auto Edit = new QState(stateMachine);
     auto Check = new QState(stateMachine);
     auto Correct = new QState(stateMachine);
     auto Incorrect = new QState(stateMachine);
 
-    Startup->assignProperty(ui->pbCheck, "enabled", false);
-    Startup->assignProperty(ui->pbRandom, "enabled", true);
-    Startup->assignProperty(ui->pbAnswer, "enabled", false);
-    Startup->assignProperty(ui->pbAnswer, "text", "???");
-    Startup->assignProperty(ui->text1, "enabled", false);
-    Startup->assignProperty(ui->text2, "enabled", false);
-    Startup->assignProperty(ui->text1, "placeholderText","Random word");
-    Startup->assignProperty(ui->text2, "placeholderText","Your answer");
 
-    Startup->addTransition(ui->pbRandom, SIGNAL(clicked(bool)), Edit);
+    Startup->addTransition(ui->CheckWord, SIGNAL(clicked(bool)), Checker);
+
+
+    Checker->assignProperty(ui->pbCheck, "enabled", false);
+    Checker->assignProperty(ui->pbRandom, "enabled", true);
+    Checker->assignProperty(ui->pbAnswer, "enabled", false);
+    Checker->assignProperty(ui->pbAnswer, "text", "???");
+    Checker->assignProperty(ui->text1, "enabled", false);
+    Checker->assignProperty(ui->text2, "enabled", false);
+    Checker->assignProperty(ui->text1, "placeholderText","Random word");
+    Checker->assignProperty(ui->text2, "placeholderText","Your answer");
+
+    Checker->addTransition(ui->pbRandom, SIGNAL(clicked(bool)), Edit);
 
     Edit->assignProperty(ui->pbCheck, "enabled", true);
     Edit->assignProperty(ui->pbRandom, "enabled", true);
@@ -66,7 +72,7 @@ MainWindow::MainWindow(QWidget *parent) :
     Incorrect->addTransition(ui->text2, SIGNAL(textChanged(QString)),Edit);
     Incorrect->addTransition(ui->pbRandom, SIGNAL(clicked(bool)),Edit);
 
-    stateMachine->setInitialState(Startup);
+    stateMachine->setInitialState(Checker);
 
     stateMachine->start();
 }
@@ -84,4 +90,14 @@ void MainWindow::check()
     qDebug() << s2;
     if (s2 == s1) emit correct();
     else emit incorrect();
+}
+
+void MainWindow::on_CheckWord_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void MainWindow::on_MainMenu_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
 }
