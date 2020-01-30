@@ -8,6 +8,7 @@ Seeder::Seeder()
     engWords = {"Dog", "Cat", "Beaver"};
     deWords = {"Hund", "Katze", "Biber"};
     plWords = {"Pies", "Kot", "Bóbr"};
+    imageNames = {":/imgs/dog.jpg", ":/imgs/cat.jpg", ":/imgs/beaver.jpg"};
 }
 
 QSqlDatabase Seeder::initDb()
@@ -95,12 +96,12 @@ int Seeder::FillWords()
         query.bindValue(":niem", deWords[i-1]);
         query.bindValue(":id_kat", 1);
 
-            // Image test
-            QPixmap inPixmap(":/imgs/images.jpeg");
+            // Image save into database
+            QPixmap inPixmap(imageNames[i-1]);
             QByteArray inByteArray;
             QBuffer inBuffer( &inByteArray );
             inBuffer.open( QIODevice::WriteOnly );
-            inPixmap.save( &inBuffer, "JPEG" ); // write inPixmap into inByteArray
+            inPixmap.save( &inBuffer, "JPG" ); // write inPixmap into inByteArray
             query.bindValue( ":img", inByteArray );
 
         auto fill = query.exec();

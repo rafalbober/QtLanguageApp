@@ -26,6 +26,7 @@ private:
     std::vector<QString> plWords;
     std::vector<QString> engWords;
     std::vector<QString> deWords;
+    std::vector<QString> imageNames;
 
 };
 

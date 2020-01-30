@@ -40,7 +40,7 @@ void WordCompare::picRand()
      while (query.next()) {
          id = query.value(0).toInt();
          z = query.value(1).toByteArray();
-         b.loadFromData(z,"JPEG");
+         b.loadFromData(z,"JPG");
      }
 
     app = 2;
