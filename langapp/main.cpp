@@ -35,7 +35,7 @@ int main(int argc, char* argv[])
 
     /* TABLE MODELS */
 
-    /*// Languages
+    // Languages
     QSqlTableModel langsTable;
     langsTable.setTable("Jezyki");
     langsTable.select();
@@ -57,7 +57,7 @@ int main(int argc, char* argv[])
     ctgsTable.select();
     QTableView* ctgsTableView = new QTableView;
     ctgsTableView->setModel(&ctgsTable);
-    ctgsTableView->show();*/
+    ctgsTableView->show();
 
 
     return a.exec();

@@ -38,6 +38,8 @@ private slots:
     void on_MainMenu_2_clicked();
     void on_picCheck_clicked();
 
+    void on_jpnMainMenu_clicked(bool checked);
+
 private:
     Ui::MainWindow *ui;
     WordCompare* wordCmp;

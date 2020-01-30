@@ -28,6 +28,8 @@ private:
     std::vector<QString> deWords;
     std::vector<QString> imageNames;
 
+    std::vector<QString> jpnWords;
+
 };
 
 #endif // SEEDER_H

@@ -9,6 +9,8 @@ Seeder::Seeder()
     deWords = {"Hund", "Katze", "Biber", "Elefant", "Hai"};
     plWords = {"Pies", "Kot", "Bóbr", "Słoń", "Rekin"};
     imageNames = {":/imgs/dog.jpg", ":/imgs/cat.jpg", ":/imgs/beaver.jpg", ":/imgs/elephant.jpg", ":/imgs/shark.jpg"};
+
+    jpnWords = {"犬", "猫", "ビーバー", "象", "鮫"};
 }
 
 QSqlDatabase Seeder::initDb()
@@ -88,12 +90,13 @@ int Seeder::FillWords()
 
     for (int i = 1; i<=plWords.size(); i++)
     {
-        query.prepare("INSERT INTO Slowa(id_sl, Polish, English, Deutsch, image, id_kat)"
-                          "VALUES (:id_sl, :pl, :ang, :niem, :img, :id_kat)");
+        query.prepare("INSERT INTO Slowa(id_sl, Polish, English, Deutsch, Japan, image, id_kat)"
+                          "VALUES (:id_sl, :pl, :ang, :niem, :jpn, :img, :id_kat)");
         query.bindValue(":id_sl", i);
         query.bindValue(":pl", plWords[i-1]);
         query.bindValue(":ang", engWords[i-1]);
         query.bindValue(":niem", deWords[i-1]);
+        query.bindValue(":jpn", jpnWords[i-1]);
         query.bindValue(":id_kat", 1);
 
             // Image save into database

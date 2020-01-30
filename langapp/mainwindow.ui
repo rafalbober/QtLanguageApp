@@ -112,7 +112,7 @@
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>40</y>
+      <y>30</y>
       <width>591</width>
       <height>381</height>
      </rect>
@@ -121,7 +121,7 @@
      <string notr="true">background:rgb(255, 255, 255)</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page_3">
      <widget class="QPushButton" name="CheckWord">
@@ -179,20 +179,20 @@
      <widget class="QPushButton" name="JapanBt">
       <property name="geometry">
        <rect>
-        <x>410</x>
-        <y>60</y>
-        <width>97</width>
-        <height>33</height>
+        <x>400</x>
+        <y>40</y>
+        <width>141</width>
+        <height>71</height>
        </rect>
       </property>
       <property name="text">
-       <string>Japan</string>
+       <string>Japoński</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>230</x>
+        <x>140</x>
         <y>20</y>
         <width>121</width>
         <height>17</height>
@@ -386,6 +386,67 @@
       </property>
       <property name="text">
        <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_6">
+     <widget class="QLineEdit" name="jpnWord">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>40</y>
+        <width>331</width>
+        <height>51</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="jpnRand">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>100</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Losuj</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="jpnTranslate">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>190</y>
+        <width>181</width>
+        <height>41</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="jpnCheck">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>250</y>
+        <width>121</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Sprawdź</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="jpnMainMenu">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>324</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Menu Główne</string>
       </property>
      </widget>
     </widget>

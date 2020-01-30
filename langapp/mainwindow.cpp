@@ -52,7 +52,8 @@ MainWindow::MainWindow(QWidget *parent) :
     Startup->assignProperty(ui->stackedWidget,"currentIndex", 0);
     Startup->assignProperty(ui->CheckWord, "enabled", false);
     Startup->assignProperty(ui->PicRec, "enabled", false);
-    Startup->assignProperty(ui->JapanBt, "enabled", false);
+    Startup->assignProperty(ui->JapanBt, "enabled", true);
+    Startup->assignProperty(ui->jpnWord, "enabled", false);
     Lang->assignProperty(ui->CheckWord, "enabled", true);
     Lang->assignProperty(ui->PicRec, "enabled", true);
 
@@ -114,8 +115,9 @@ void MainWindow::on_DeutschBt_clicked()
 
 void MainWindow::on_JapanBt_clicked()
 {
-    lang = "Japan";
-    emit langChange(lang);
+    /*lang = "Japan";
+    emit langChange(lang);*/
+    ui->stackedWidget->setCurrentIndex(3);
 }
 
 void MainWindow::on_pbCheck_clicked()
@@ -139,4 +141,9 @@ void MainWindow::on_MainMenu_2_clicked()
 void MainWindow::on_picCheck_clicked()
 {
     wordCmp->checkCorrect(ui->picText->text());
+}
+
+void MainWindow::on_jpnMainMenu_clicked(bool checked)
+{
+    ui->stackedWidget->setCurrentIndex(0);
 }
