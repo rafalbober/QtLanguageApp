@@ -27,7 +27,8 @@ public slots:
     void assignValue(QString val);
     void randomMaker();
     void picRand();
-
+    void selectJpn();
+    void checkJpn(QString);
 
 signals:
     void changed(QString);
@@ -36,6 +37,9 @@ signals:
     void correctPic(QString);
     void incorrectPic(QString);
     void picRanded(QPixmap);
+    void jpnRanded(QString);
+    void jpnOk(QString);
+    void jpnNo(QString);
 
 private:
     QString lang;

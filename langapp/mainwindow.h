@@ -20,6 +20,7 @@ signals:
     void correct();
     void incorrect();
     void langChange(QString val);
+    void jpnPl(QString);
 
 
 public slots:
@@ -39,6 +40,10 @@ private slots:
     void on_picCheck_clicked();
 
     void on_jpnMainMenu_clicked(bool checked);
+
+    void on_jpnRand_clicked();
+
+    void on_jpnCheck_clicked();
 
 private:
     Ui::MainWindow *ui;

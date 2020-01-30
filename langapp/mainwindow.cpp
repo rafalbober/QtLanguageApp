@@ -34,6 +34,12 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(wordCmp,SIGNAL(correctWord(QString)),ui->pbAnswer,SLOT(setText(QString)));
     connect(wordCmp,SIGNAL(incorrectWord(QString)),ui->pbAnswer,SLOT(setText(QString)));
 
+    // japanese
+    connect(ui->jpnRand, SIGNAL(clicked()), wordCmp, SLOT(selectJpn()));
+    connect(wordCmp, SIGNAL(jpnRanded(QString)), ui->jpnWord, SLOT(setText(QString)));
+    connect(wordCmp, SIGNAL(jpnOk(QString)), ui->jpnRes, SLOT(setText(QString)));
+    connect(wordCmp, SIGNAL(jpnNo(QString)), ui->jpnRes, SLOT(setText(QString)));
+
     //---------------------------TRANSITIONS--------------------------------------
 
     Startup->addTransition(this, SIGNAL(langChange(QString)), Lang);
@@ -53,7 +59,6 @@ MainWindow::MainWindow(QWidget *parent) :
     Startup->assignProperty(ui->CheckWord, "enabled", false);
     Startup->assignProperty(ui->PicRec, "enabled", false);
     Startup->assignProperty(ui->JapanBt, "enabled", true);
-    Startup->assignProperty(ui->jpnWord, "enabled", false);
     Lang->assignProperty(ui->CheckWord, "enabled", true);
     Lang->assignProperty(ui->PicRec, "enabled", true);
 
@@ -146,4 +151,15 @@ void MainWindow::on_picCheck_clicked()
 void MainWindow::on_jpnMainMenu_clicked(bool checked)
 {
     ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_jpnRand_clicked()
+{
+
+}
+
+void MainWindow::on_jpnCheck_clicked()
+{
+    QString p = ui->jpnTranslate->text();
+    wordCmp->checkJpn(p);
 }

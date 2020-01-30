@@ -44,7 +44,47 @@ void WordCompare::picRand()
      }
 
     app = 2;
-     emit picRanded(b);
+    emit picRanded(b);
+}
+
+void WordCompare::selectJpn()
+{
+    //qDebug() << "Jpn rand";
+    QSqlQuery query;
+    query.prepare("select id_sl, Polish, Japan from Slowa WHERE id_sl >= (abs(random()) % (SELECT max(id_sl + 1) FROM Slowa)) limit 1");
+    query.exec();
+    QString pl;
+    QString jpn;
+
+    while (query.next()) {
+        id = query.value(0).toInt();
+        pl = query.value(1).toString();
+        jpn = query.value(2).toString();
+        qDebug() << id;
+        qDebug() << pl;
+        qDebug() << jpn;
+    }
+
+    emit jpnRanded(jpn);
+}
+
+void WordCompare::checkJpn(QString s)
+{
+    QSqlQuery query;
+    query.prepare("select id_sl, Polish from Slowa WHERE id_sl = :id)");
+    query.bindValue(":id", id);
+    query.exec();
+    QString pl;
+    while (query.next()) {
+        pl = query.value(0).toString();
+        qDebug() << pl;
+    }
+    if( QString::compare(s, pl, Qt::CaseInsensitive) ) {
+        emit jpnOk("Brawo!");
+    }
+    else {
+        emit jpnNo("Nie!");
+    }
 }
 
 void WordCompare::checkCorrect(QString val)
