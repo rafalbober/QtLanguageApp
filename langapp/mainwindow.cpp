@@ -35,7 +35,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(wordCmp,SIGNAL(incorrectWord(QString)),ui->pbAnswer,SLOT(setText(QString)));
 
     // japanese
-    connect(ui->jpnRand, SIGNAL(clicked()), wordCmp, SLOT(selectJpn()));
     connect(wordCmp, SIGNAL(jpnRanded(QString)), ui->jpnWord, SLOT(setText(QString)));
     connect(wordCmp, SIGNAL(jpnOk(QString)), ui->jpnRes, SLOT(setText(QString)));
     connect(wordCmp, SIGNAL(jpnNo(QString)), ui->jpnRes, SLOT(setText(QString)));
@@ -155,11 +154,11 @@ void MainWindow::on_jpnMainMenu_clicked(bool checked)
 
 void MainWindow::on_jpnRand_clicked()
 {
-
+    ui->jpnRes->setText("");
+    wordCmp->selectJpn();
 }
 
 void MainWindow::on_jpnCheck_clicked()
 {
-    QString p = ui->jpnTranslate->text();
-    wordCmp->checkJpn(p);
+    wordCmp->checkJpn(ui->jpnTranslate->text());
 }

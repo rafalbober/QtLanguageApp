@@ -71,15 +71,15 @@ void WordCompare::selectJpn()
 void WordCompare::checkJpn(QString s)
 {
     QSqlQuery query;
-    query.prepare("select id_sl, Polish from Slowa WHERE id_sl = :id)");
+    query.prepare("select id_sl,Polish from Slowa WHERE id_sl = :id");
     query.bindValue(":id", id);
     query.exec();
-    QString pl;
+    QString pl = "test";
     while (query.next()) {
-        pl = query.value(0).toString();
-        qDebug() << pl;
+        pl = query.value(1).toString();
     }
-    if( QString::compare(s, pl, Qt::CaseInsensitive) ) {
+    qDebug() << pl;
+    if( !QString::compare(s, pl, Qt::CaseInsensitive) ) {
         emit jpnOk("Brawo!");
     }
     else {
