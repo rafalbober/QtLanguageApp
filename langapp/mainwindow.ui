@@ -112,7 +112,7 @@
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>30</y>
+      <y>40</y>
       <width>591</width>
       <height>381</height>
      </rect>
@@ -121,20 +121,20 @@
      <string notr="true">background:rgb(255, 255, 255)</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page_3">
      <widget class="QPushButton" name="CheckWord">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>100</x>
         <y>190</y>
         <width>171</width>
-        <height>111</height>
+        <height>91</height>
        </rect>
       </property>
       <property name="text">
-       <string>Porownywanie słów</string>
+       <string>Porównywanie słów</string>
       </property>
      </widget>
      <widget class="QLabel" name="label">
@@ -205,14 +205,36 @@
      <widget class="QPushButton" name="PicRec">
       <property name="geometry">
        <rect>
-        <x>210</x>
+        <x>330</x>
         <y>190</y>
         <width>191</width>
-        <height>111</height>
+        <height>91</height>
        </rect>
       </property>
       <property name="text">
        <string>Rozpoznawanie obrazków</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>310</y>
+        <width>161</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>28</pointsize>
+        <italic>true</italic>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:silver</string>
+      </property>
+      <property name="text">
+       <string>LangApp</string>
       </property>
      </widget>
     </widget>
@@ -220,14 +242,14 @@
      <widget class="QPushButton" name="pbCheck">
       <property name="geometry">
        <rect>
-        <x>340</x>
-        <y>210</y>
-        <width>201</width>
-        <height>141</height>
+        <x>310</x>
+        <y>170</y>
+        <width>181</width>
+        <height>101</height>
        </rect>
       </property>
       <property name="text">
-       <string>Check</string>
+       <string>Sprawdź</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pbRandom">
@@ -235,45 +257,45 @@
        <rect>
         <x>100</x>
         <y>150</y>
-        <width>97</width>
-        <height>33</height>
+        <width>121</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="text">
-       <string>Random word</string>
+       <string>Losowe słowo</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="ShowText">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>70</x>
         <y>90</y>
-        <width>113</width>
-        <height>31</height>
+        <width>191</width>
+        <height>51</height>
        </rect>
       </property>
      </widget>
      <widget class="QLineEdit" name="TypeText">
       <property name="geometry">
        <rect>
-        <x>380</x>
+        <x>300</x>
         <y>90</y>
-        <width>113</width>
-        <height>31</height>
+        <width>201</width>
+        <height>51</height>
        </rect>
       </property>
      </widget>
      <widget class="QPushButton" name="MainMenu">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>0</y>
-        <width>97</width>
+        <x>20</x>
+        <y>20</y>
+        <width>141</width>
         <height>33</height>
        </rect>
       </property>
       <property name="text">
-       <string>Main Menu</string>
+       <string>Menu Główne</string>
       </property>
      </widget>
      <widget class="QLabel" name="pbAnswer">
@@ -296,20 +318,20 @@
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>97</width>
+        <width>131</width>
         <height>33</height>
        </rect>
       </property>
       <property name="text">
-       <string>Main Menu</string>
+       <string>Menu Główne</string>
       </property>
      </widget>
      <widget class="QLabel" name="imageLabel">
       <property name="geometry">
        <rect>
-        <x>280</x>
+        <x>220</x>
         <y>70</y>
-        <width>261</width>
+        <width>321</width>
         <height>201</height>
        </rect>
       </property>
@@ -320,20 +342,20 @@
      <widget class="QPushButton" name="picBt">
       <property name="geometry">
        <rect>
-        <x>360</x>
-        <y>300</y>
+        <x>340</x>
+        <y>290</y>
         <width>97</width>
         <height>33</height>
        </rect>
       </property>
       <property name="text">
-       <string>Randomuj</string>
+       <string>Losuj</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="picText">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>40</x>
         <y>150</y>
         <width>113</width>
         <height>31</height>
@@ -343,14 +365,14 @@
      <widget class="QPushButton" name="picCheck">
       <property name="geometry">
        <rect>
-        <x>100</x>
-        <y>200</y>
+        <x>50</x>
+        <y>190</y>
         <width>97</width>
         <height>33</height>
        </rect>
       </property>
       <property name="text">
-       <string>Sprawdz</string>
+       <string>Sprawdź</string>
       </property>
      </widget>
      <widget class="QLabel" name="picCorr">
@@ -383,15 +405,9 @@
      <x>0</x>
      <y>0</y>
      <width>742</width>
-     <height>29</height>
+     <height>22</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuGLODZIAKOWE_KOLORKI">
-    <property name="title">
-     <string>GLODZIAKOWE KOLORKI</string>
-    </property>
-   </widget>
-   <addaction name="menuGLODZIAKOWE_KOLORKI"/>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

@@ -61,12 +61,12 @@ MainWindow::MainWindow(QWidget *parent) :
     Checker->assignProperty(ui->pbAnswer, "enabled", false);
     Checker->assignProperty(ui->ShowText, "enabled", false);
     Checker->assignProperty(ui->TypeText, "enabled", false);
-    Checker->assignProperty(ui->ShowText, "text","Random word");
-    Checker->assignProperty(ui->TypeText, "placeholderText","Your answer");
+    Checker->assignProperty(ui->ShowText, "text", "Losowe słowo");
+    Checker->assignProperty(ui->TypeText, "placeholderText","Twoja odpowiedź");
 
     Edit->assignProperty(ui->pbCheck, "enabled", true);
     Edit->assignProperty(ui->TypeText, "enabled", true);
-    Edit->assignProperty(ui->TypeText, "placeholderText","Your answer");
+    Edit->assignProperty(ui->TypeText, "placeholderText","Twoja odpowiedź");
 
     stateMachine->setInitialState(Startup);
 

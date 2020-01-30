@@ -69,16 +69,16 @@ void WordCompare::checkCorrect(QString val)
     if(!QString::compare(b, val, Qt::CaseInsensitive))
     {
         if (app == 1)
-            emit correctWord("Correct");
+            emit correctWord("Brawo!");
         if (app == 2)
-            emit correctPic("Correct");
+            emit correctPic("Brawo!");
     }
     else
     {
         if (app == 1)
-            emit incorrectWord("inCorrect");
+            emit incorrectWord("Nie!");
         if (app == 2)
-            emit incorrectPic("inCorrect");
+            emit incorrectPic("Nie!");
     }
 }
 
