@@ -5,10 +5,10 @@ Seeder::Seeder()
 {
     langs = {"Polish", "English", "Deutsch", "Japan"};
     categories = {"zwierzęta"};
-    engWords = {"Dog", "Cat", "Beaver"};
-    deWords = {"Hund", "Katze", "Biber"};
-    plWords = {"Pies", "Kot", "Bóbr"};
-    imageNames = {":/imgs/dog.jpg", ":/imgs/cat.jpg", ":/imgs/beaver.jpg"};
+    engWords = {"Dog", "Cat", "Beaver", "Elephant", "Shark"};
+    deWords = {"Hund", "Katze", "Biber", "Elefant", "Hai"};
+    plWords = {"Pies", "Kot", "Bóbr", "Słoń", "Rekin"};
+    imageNames = {":/imgs/dog.jpg", ":/imgs/cat.jpg", ":/imgs/beaver.jpg", ":/imgs/elephant.jpg", ":/imgs/shark.jpg"};
 }
 
 QSqlDatabase Seeder::initDb()

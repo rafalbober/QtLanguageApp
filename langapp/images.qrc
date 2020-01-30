@@ -3,5 +3,7 @@
         <file>dog.jpg</file>
         <file>cat.jpg</file>
         <file>beaver.jpg</file>
+        <file>elephant.jpg</file>
+        <file>shark.jpg</file>
     </qresource>
 </RCC>
