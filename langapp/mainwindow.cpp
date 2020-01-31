@@ -57,7 +57,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     Checker->addTransition(ui->MainMenu, SIGNAL(clicked(bool)), Startup);
     Checker->addTransition(wordCmp, SIGNAL(changed(QString)), Edit);
-    Checker->addTransition(wordCmp, SIGNAL(changed(QString)), Edit);
 
     Edit->addTransition(ui->MainMenu, SIGNAL(clicked(bool)), Startup);
 

@@ -1,0 +1,39 @@
+@startuml
+
+[*] -down-> Startup
+Startup -down-> Lang : <b>this</b> langChange(QString)
+Lang -down-> Checker : <b>CheckWord</b> clicked(bool)
+Lang -right-> PicTest : <b>PicRec</b> clicked(bool)
+PicTest -up-> Startup : <b>MainMenu_2</b> clicked(bool)
+Checker -left->Startup : <b>MainMenu</b> clicked(bool)
+Checker -down->Edit : <b>wordCmp</b> changed(QString)
+Edit -left-> Startup : <b>MainMenu</b> clicked(bool)
+ 
+
+Startup: <b>stackedWidget</b> currentIndex <b>0</b>
+Startup: <b>CheckWord</b> enabled <b>false</b>
+Startup: <b>PicRec</b> enabled <b>false</b>
+Startup: <b>JapanBt</b> enabled <b>true</b>
+
+Lang: <b>CheckWord</b> enabled <b>true</b>
+Lang: <b>PicRec</b> enabled <b>true</b>
+
+Checker: <b>pbCheck</b> enabled <b>false</b>
+Checker: <b>pbRandom</b> enabled <b>true</b>
+Checker: <b>pbAnswer</b> enabled <b>false</b>
+Checker: <b>ShowText</b> enabled <b>false</b>
+Checker: <b>TypeText</b> enabled <b>false</b>
+Checker: <b>ShowText</b> text <b>"Losowe słowo"</b>
+Checker: <b>TypeText</b> placeholderText <b>"Twoja odpowiedź"</b>
+
+Edit: <b>pbCheck</b> enabled <b>true</b>
+Edit: <b>TypeText</b> enabled <b>true</b>
+Edit: <b>TypeText</b> placeholderText <b>"Twoja odpowiedź"</b>
+
+PicTest: <b>picBt</b> enabled <b>true</b>
+PicTest: <b>picCheck</b> enabled <b>true</b>
+PicTest: <b>MainMenu_2</b> enabled <b>true</b>
+PicTest: <b>picText</b> enabled <b>true</b>
+
+
+@enduml
