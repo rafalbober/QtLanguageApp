@@ -39,7 +39,7 @@ private slots:
     void on_MainMenu_2_clicked();
     void on_picCheck_clicked();
 
-    void on_jpnMainMenu_clicked(bool checked);
+    void on_jpnMainMenu_clicked();
 
     void on_jpnRand_clicked();
 

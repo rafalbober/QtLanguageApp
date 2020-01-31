@@ -19,6 +19,9 @@ MainWindow::MainWindow(QWidget *parent) :
     auto Checker = new QState(stateMachine);
     auto Edit = new QState(stateMachine);
     auto PicTest = new QState(stateMachine);
+    auto PicRand = new QState(stateMachine);
+    auto Japan = new QState(stateMachine);
+    auto JapanRand = new QState(stateMachine);
 
 
     //-----------------------------CONNECTS-------------------------------------------
@@ -42,16 +45,25 @@ MainWindow::MainWindow(QWidget *parent) :
     //---------------------------TRANSITIONS--------------------------------------
 
     Startup->addTransition(this, SIGNAL(langChange(QString)), Lang);
+    Startup->addTransition(ui->JapanBt, SIGNAL(clicked(bool)), Japan);
+    Lang->addTransition(ui->JapanBt, SIGNAL(clicked(bool)), Japan);
     Lang->addTransition(ui->CheckWord, SIGNAL(clicked(bool)), Checker);
     Lang->addTransition(ui->PicRec, SIGNAL(clicked(bool)), PicTest);
 
     PicTest->addTransition(ui->MainMenu_2, SIGNAL(clicked(bool)), Startup);
+    PicTest->addTransition(ui->picBt, SIGNAL(clicked(bool)), PicRand);
+    PicRand->addTransition(ui->MainMenu_2, SIGNAL(clicked(bool)), Startup);
+
 
     Checker->addTransition(ui->MainMenu, SIGNAL(clicked(bool)), Startup);
     Checker->addTransition(wordCmp, SIGNAL(changed(QString)), Edit);
     Checker->addTransition(wordCmp, SIGNAL(changed(QString)), Edit);
 
     Edit->addTransition(ui->MainMenu, SIGNAL(clicked(bool)), Startup);
+
+    Japan->addTransition(ui->jpnMainMenu, SIGNAL(clicked(bool)), Startup);
+    Japan->addTransition(ui->jpnRand, SIGNAL(clicked(bool)), JapanRand);
+    JapanRand->addTransition(ui->jpnMainMenu, SIGNAL(clicked(bool)), Startup);
 
     //-----------------------ASSIGN PROPERTY----------------------------------
     Startup->assignProperty(ui->stackedWidget,"currentIndex", 0);
@@ -72,6 +84,21 @@ MainWindow::MainWindow(QWidget *parent) :
     Edit->assignProperty(ui->pbCheck, "enabled", true);
     Edit->assignProperty(ui->TypeText, "enabled", true);
     Edit->assignProperty(ui->TypeText, "placeholderText","Twoja odpowiedź");
+
+    PicTest->assignProperty(ui->picCorr, "text", "");
+    PicTest->assignProperty(ui->picText, "enabled", false);
+    PicTest->assignProperty(ui->picCheck, "enabled", false);
+    PicRand->assignProperty(ui->picText, "enabled", true);
+    PicRand->assignProperty(ui->picCheck, "enabled", true);
+
+    Japan->assignProperty(ui->stackedWidget,"currentIndex", 3);
+    Japan->assignProperty(ui->jpnWord, "text", "");
+    Japan->assignProperty(ui->jpnRes, "text", "");
+    Japan->assignProperty(ui->jpnCheck, "enabled", false);
+    Japan->assignProperty(ui->jpnTranslate, "enabled", false);
+
+    JapanRand->assignProperty(ui->jpnCheck, "enabled", true);
+    JapanRand->assignProperty(ui->jpnTranslate, "enabled", true);
 
     stateMachine->setInitialState(Startup);
 
@@ -119,8 +146,6 @@ void MainWindow::on_DeutschBt_clicked()
 
 void MainWindow::on_JapanBt_clicked()
 {
-    /*lang = "Japan";
-    emit langChange(lang);*/
     ui->stackedWidget->setCurrentIndex(3);
 }
 
@@ -147,7 +172,7 @@ void MainWindow::on_picCheck_clicked()
     wordCmp->checkCorrect(ui->picText->text());
 }
 
-void MainWindow::on_jpnMainMenu_clicked(bool checked)
+void MainWindow::on_jpnMainMenu_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
