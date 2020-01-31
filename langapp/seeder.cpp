@@ -6,7 +6,7 @@ Seeder::Seeder()
     langs = {"Polish", "English", "Deutsch", "Japan"};
     categories = {"zwierzęta"};
     engWords = {"Dog", "Cat", "Beaver", "Elephant", "Shark","Bee", "Mouse", "Bear", "Bird", "Fish", "Lion", "Tiger", "Monkey", "Stork", "Seagull", "Cow", "Duck", "Panda", "Pig", "Horse", "Donkey"};
-    deWords = {"Hund", "Katze", "Biber", "Elefant", "Hai","Biene", "Maus", "Bär", "Vogel", "Fisch", "Löwe", "Tiger", "Affe", "Storch", "Möwe", "Kuh", "Ente", "Panda", "Schwein"," Pferd "," Esel"};
+    deWords = {"Hund", "Katze", "Biber", "Elefant", "Hai","Biene", "Maus", "Bär", "Vogel", "Fisch", "Löwe", "Tiger", "Affe", "Storch", "Möwe", "Kuh", "Ente", "Panda", "Schwein","Pferd"," Esel"};
     plWords = {"Pies", "Kot", "Bóbr", "Słoń", "Rekin", "Pszczoła", "Mysz", "Niedźwiedź", "Ptak", "Ryba", "Lew", "Tygrys", "Małpa", "Bocian", "Mewa", "Krowa", "Kaczka", "Panda", "Świnia", "Koń", "Osioł"};
     imageNames = {":/imgs/dog.jpg", ":/imgs/cat.jpg", ":/imgs/beaver.jpg", ":/imgs/elephant.jpg", ":/imgs/shark.jpg",":/imgs/bee.jpg", ":/imgs/mouse.jpg", ":/imgs/bear.jpg", ":/imgs/bird.jpg", ":/imgs/fish.jpg",":/imgs/lion.jpg", ":/imgs/tiger.jpg", ":/imgs/monkey.jpg", ":/imgs/stork.jpg", ":/imgs/seagull.jpg",":/imgs/cow.jpg", ":/imgs/duck.jpg", ":/imgs/panda.jpg", ":/imgs/pig.jpg", ":/imgs/horse.jpg",":/imgs/donkey.jpg"};
 
