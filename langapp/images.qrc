@@ -5,5 +5,21 @@
         <file>beaver.jpg</file>
         <file>elephant.jpg</file>
         <file>shark.jpg</file>
+        <file>bear.jpg</file>
+        <file>bee.jpg</file>
+        <file>bird.jpg</file>
+        <file>cow.jpg</file>
+        <file>donkey.jpg</file>
+        <file>duck.jpg</file>
+        <file>fish.jpg</file>
+        <file>horse.jpg</file>
+        <file>monkey.jpg</file>
+        <file>mouse.jpg</file>
+        <file>panda.jpg</file>
+        <file>pig.jpg</file>
+        <file>seagull.jpg</file>
+        <file>stork.jpg</file>
+        <file>tiger.jpg</file>
+        <file>lion.jpg</file>
     </qresource>
 </RCC>
