@@ -2,12 +2,19 @@
 
 [*] -down-> Startup
 Startup -down-> Lang : <b>this</b> langChange(QString)
+Startup -right-> Japan : <b>JapanBt</b> clicked(bool)
+Lang -right-> Japan : <b>JapanBt</b> clicked(bool)
 Lang -down-> Checker : <b>CheckWord</b> clicked(bool)
-Lang -right-> PicTest : <b>PicRec</b> clicked(bool)
+Lang -left-> PicTest : <b>PicRec</b> clicked(bool)
 PicTest -up-> Startup : <b>MainMenu_2</b> clicked(bool)
+PicTest -down-> PicRand : <b>picBt</b> clicked(bool)
+PicRand -up-> Startup : <b>MainMenu_2</b> clicked(bool)
 Checker -left->Startup : <b>MainMenu</b> clicked(bool)
 Checker -down->Edit : <b>wordCmp</b> changed(QString)
 Edit -left-> Startup : <b>MainMenu</b> clicked(bool)
+Japan -right->JapanRand : <b>jpnRand</b> clicked(bool)
+Japan -left->Startup : <b>jpnMainMenu</b> clicked(bool)
+JapanRand -left->Startup : <b>jpnMainMenu</b> clicked(bool)
  
 
 Startup: <b>stackedWidget</b> currentIndex <b>0</b>
@@ -30,10 +37,21 @@ Edit: <b>pbCheck</b> enabled <b>true</b>
 Edit: <b>TypeText</b> enabled <b>true</b>
 Edit: <b>TypeText</b> placeholderText <b>"Twoja odpowiedź"</b>
 
-PicTest: <b>picBt</b> enabled <b>true</b>
-PicTest: <b>picCheck</b> enabled <b>true</b>
+PicTest: <b>picCheck</b> enabled <b>false</b>
 PicTest: <b>MainMenu_2</b> enabled <b>true</b>
-PicTest: <b>picText</b> enabled <b>true</b>
+PicTest: <b>picText</b> enabled <b>false</b>
+
+PicRand: <b>picText</b> enabled <b>true</b>
+PicRand: <b>picCheck<b> enabled <b>true</b>
+
+Japan: <b>stackWidget</b> currentIndex <b>3</b>
+Japan: <b>jpnCheck</b> enabled <b>false</b>
+Japan: <b>jpnTranslate</b> enabled <b>false</b>
+
+JapanRand: <b>jpnCheck</b> enabled <b>true</b>
+JapanRand: <b>jpnTranslate</b> enabled <b>true</b>
+
+
 
 
 @enduml
