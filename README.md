@@ -1,7 +1,7 @@
-# Aplikacja do nauki języków
+# Language learning application in Qt
 
-- Możliwie tworzenie testów słownictwa (wybór z obrazkami itp.)
-- Rozwiązywanie testów (z opcją powtarzania błędnych odpowiedzi aż do skutku)
-- Aplikacja posiada lokalną bazę danych z testami
-- Aplikacja musi wspierać języki z niestandardowym zbiorem znaków (przykład: ćwiczenia z nauki Japońskiej hiragany/katakany/kanji)
-- (*) możliwość odtwarzania przykładów wymowy (n.p.: po zaznaczeniu dowolnego tekstu)
+Created with C++ and Qt libraries for the sake of "Object Oriented Programming" subject in the team of 4 students, including me.
+
+SQLite database with words and pictures (BLOB objects),
+English, German and Japanese Katakana word comparing games (comparing answers with Polish words),
+Naming the picture with the words in selected languages game,
